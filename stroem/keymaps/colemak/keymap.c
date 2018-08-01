@@ -4,6 +4,8 @@
 
 extern keymap_config_t keymap_config;
 
+#define SS_RSFT(string) SS_DOWN(X_RSHIFT) string SS_UP(X_RSHIFT)
+
 enum custom_keycodes {
     M_AE = SAFE_RANGE,
     M_OE,
