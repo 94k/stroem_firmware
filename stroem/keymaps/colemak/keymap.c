@@ -17,7 +17,8 @@ enum custom_keycodes {
     M_DGRA,
     M_DCIR,
     M_PND,
-    M_YEN
+    M_YEN,
+    M_DEG
 };
 
 // setxkbmap -option compose:ralt
@@ -58,6 +59,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case M_YEN:
                 SEND_STRING(SS_RALT("y="));
                 return false;
+            case M_DEG:
+                SEND_STRING(SS_RALT("0*"));
+                return false;
         }
     }
     return true;
@@ -77,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
 
   KEYMAP(
-		KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F13, M_PND, M_UE, M_YEN, KC_F16,
+		KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F13, M_PND, M_UE, M_YEN, M_DEG,
 		M_AE, KC_F6, M_ESZ, KC_F7, KC_F8, M_DAC, M_DCIR, M_EUR, M_DGRA, M_OE,
 		KC_TRANSPARENT, KC_F9, KC_F10, KC_F11, KC_F12, KC_F21, KC_ESC, M_MU, KC_F24, KC_TRANSPARENT,
 		KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT),
